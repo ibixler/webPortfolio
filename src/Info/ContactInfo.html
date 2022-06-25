@@ -3,10 +3,12 @@
     <head>
         <title>Ivy Bixler's Portfolio</title>
         <link href="../css/styles.css" type="text/css" rel="stylesheet"/>
+        <script src = "https://unpkg.com/eva-icons"></script>
+        <script src = "../js/main.js"></script>
     </head>
     <header>
-        <div class="topnav">
-            <a href="../index.html">Home</a> 
+        <div class="topnav" id = "respoNav">
+            <a href="index.html">Home</a> 
             <div class="dropdown">
                 <button class="dropdownItem">Hobbies</button>
                 <div class="dropdownContent">
@@ -31,6 +33,13 @@
                     <a href="../Info/ContactInfo.html">About This Website</a>
                 </div>
             </div>
+            <a class="icon" onclick="burgerMenu()" id="respBtn">
+                <i data-eva="menu-outline" id="menubtn"></i>
+                <script>
+                    replace()
+                </script>
+            </a>
+        </div>
         </div>
     </header>
     <body>

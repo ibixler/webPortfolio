@@ -1,5 +1,9 @@
 .topnav{
     background-color: plum;
+    z-index: 1;
+
+
+    
 }
 
 .topnav a{
@@ -71,15 +75,22 @@
     .topnav a:not(:first-child), .dropdown .dropdownItem {
       display: none;
     }
+    #home{
+      padding-top: 18.5px;
+      padding-bottom: 18.5px;
+    }
     .topnav a.icon {
       float: right;
       display: block;
+      background-color: plum;
+      
     }
   }
   
   @media screen and (max-width: 600px) {
     .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
+      background-color: plum;
       position: absolute;
       right: 0;
       top: 0;
@@ -91,12 +102,21 @@
       
     }
     .topnav.responsive .dropdown {float: none;}
-    .topnav.responsive .dropdownContent {position: fixed;}
+    .topnav.responsive .dropdownContent {
+      position: fixed;
+    }
     .topnav.responsive .dropdown .dropdownItem {
       display: block;
       width: 100%;
       text-align: left;
+      z-index: 1;
 
+    }
+    #respoNav.topnav.topnav.responsive{
+      padding-bottom: 0pt;
+    }
+    #respoNav.topnav{
+      padding-bottom: 39px;
     }
   }
 body {
