@@ -98,7 +98,9 @@
   
   @media screen and (max-width: 600px) {
     .topnav.responsive {
-      position: relative;
+      position: absolute;
+      margin-right: auto;
+      margin-left: auto;
       
     }
     .topnav.responsive .icon {
@@ -108,7 +110,7 @@
       top: 0;
     }
     .topnav.responsive a {
-      float: none;
+      float: left;
       display: block;
       text-align: left;
 
@@ -118,7 +120,7 @@
 
       position:relative;
       width: 100%;
-      z-index: 0;
+      z-index: 1;
       text-shadow: none;
       background-color: grey;
       color:white;
@@ -127,7 +129,7 @@
       display: block;
       text-align: left;
       z-index: 0;
-      min-width: 300px;
+      min-width: 325px;
 
 
 
