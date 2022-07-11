@@ -1,3 +1,7 @@
+:root{
+  --mobileWidth: 400px;
+}
+
 .html, .body{
   width: 75%;
   height: 75%;
@@ -37,7 +41,7 @@
     padding: 14px 16px;
     font-size: 17px;
     background-color: rgb(147	137	212);
-    
+
 }
 
 .dropdown{
@@ -102,6 +106,7 @@
       position: relative;
       margin-right: auto;
       margin-left: auto;
+      width: 100%;
       
     }
     .topnav.responsive .icon {
@@ -128,16 +133,15 @@
       color:white;
     }
     .topnav.responsive .dropdown .dropdownItem {
-      display:inline;
+      display: list-item;
       text-align: left;
-      z-index: 0;
-      min-width: 325px;
-
-
+      z-index: 1;
+      min-width: var(--mobileWidth);
 
     }
     #respoNav.topnav.topnav.responsive{
       padding-bottom: 0pt;
+
       
     }
     #respoNav.topnav{
