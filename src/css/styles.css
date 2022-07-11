@@ -103,10 +103,10 @@
   
   @media screen and (max-width: 600px) {
     .topnav.responsive {
-      position: relative;
+      position: absolute;
       margin-right: auto;
       margin-left: auto;
-      width: 100%;
+      width: var(--mobileWidth);
       
     }
     .topnav.responsive .icon {
@@ -125,8 +125,8 @@
     .topnav.responsive .dropdownContent {
 
       position: inherit;
-      margin-left: 40px;
-      width: 100%;
+      padding-left: 40px;
+      width: calc(var(--mobileWidth) - 40px);
       z-index: 1;
       text-shadow: none;
       background-color: grey;
