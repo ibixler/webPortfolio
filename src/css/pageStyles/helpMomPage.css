@@ -4,9 +4,16 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    
     color: azure;
     text-shadow: 0px 3px 3px rgba(0,0,0,.5);
     
+}
+
+.macTips {
+    width: 1000px;
+    text-align: left;
+    margin:auto;
+    background-color: white;
+
 }
 

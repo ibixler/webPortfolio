@@ -90,9 +90,10 @@
       display: none;
     }
     #home{
-      padding-top: 18.5px;
-      padding-bottom: 18.5px;
+      padding-top: 19px;
+      padding-bottom: 19px;
       float: left;
+      text-shadow: none;
     }
     .topnav a.icon {
       float: right;
