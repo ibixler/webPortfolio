@@ -3,12 +3,14 @@ body {
     background-image: url('../../Assets/Photos/homePage.jpg');
     background-repeat: no-repeat;
     background-position: top;
-    
     color: black;
     margin-left: auto;
     margin-right: auto;
 
-    
+}
+
+#helpTitle {
+    font-size: 40pt;
 }
 
 h2 {
@@ -17,15 +19,26 @@ h2 {
 
 }
 .macTips {
-    width: 1000px;
+    max-width: 1000px;
     text-align: left;
     margin:auto;
     margin-top: 15px;
     background-color: white;
-    width: 900px;
     padding-top: 10px;
     padding-left: 25px;
     padding-right: 25px;
 
 }
 
+@media print{
+    body {
+        visibility: hidden;
+    }
+    .macTips {
+        visibility: visible;
+        position:absolute;
+        top: 0;
+        left: 0;
+
+    }
+}
