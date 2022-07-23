@@ -1,25 +1,34 @@
+var img = 'test';
+var modal = 'test';
+var modalImg = 'test';
+window.onload = function(){
+    console.log('your balls are tiny');
+    img = document.getElementById("galleryImg-1");
+    modal = document.getElementById("galleryModal");
+    modalContent = document.getElementById('img01')
+    modalImg = img.src;
+}
+ 
 
-var modal = document.getElementById("galleryModal");
 
-const [img] = document
-    .querySelector(".row")
 
-console.log(img)
+console.log('literally fucking crying');
+function triggerModal(){
+    
 
-var modalImg = document.getElementById('img01')
-var captionText = document.getElementById('caption');
+    console.log("clicked");
 
-console.log('literally fucking crying')
-img.onclick = function(){
-    console.log("clicked")
     modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt; 
+    modalContent.src = modalImg;
 }
 
-var span = document.getElementsByClassName("close")[0];
 
-
-span.onclick = function(){
-    modal.style.dispay = "none";
+function closeModal(){
+    console.log('lick my balls');
+    console.log(modal);
+    modal.style.display = "none";
+    console.log(modal);
+    
 }
+
+

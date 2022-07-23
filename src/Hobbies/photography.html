@@ -10,7 +10,8 @@
         <link href="../css/styles.css" type="text/css" rel="stylesheet"/>
         <script src = "https://unpkg.com/eva-icons"></script>
         <script src = "../js/main.js"></script>
-        
+        <script src="../js/photoModal.js"></script>
+
         
     </head>
     <header>
@@ -55,7 +56,7 @@
             </div>
         </div>
         <div id="galleryModal" class="modal">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closeModal();">&times; </span>
 
             <img class="modalContent" id="img01" alt="boobs">
 
@@ -64,7 +65,8 @@
         <div id="photos">
             <div class="row">
                 <div class="column">
-                    <img id="galleryImg-1" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-17.jpg" alt="another flower picture">
+
+                    <input type="image" id="galleryImg-1" onclick="triggerModal();" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-17.jpg"  alt="another flower picture"/>
                     <img id="galleryImg-2" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-1.jpg" alt="columbines in california">
                     <img id="galleryImg-3" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-20.jpg" alt="row of bikes all chained up">
                     <img id="galleryImg-4" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-2.jpg" alt="succulents in rocks">
@@ -76,8 +78,6 @@
                     <img id="galleryImg-8" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-5.jpg" alt="a leaf nearly ready to fall">
                     <img id="galleryImg-9" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-6.jpg" alt="the late princess daisy">
                     <img id="galleryImg-10" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-18.jpg" alt="flowers in samsterdam">
-
-
                     <img id="galleryImg-11" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-7.jpg" alt="vines growing through a fence">
                     <img id="galleryImg-12" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-21.jpg" alt="a man with 2 lovely laidies">
 
@@ -85,26 +85,21 @@
                 </div>
                 <div class="column">
                     <img id="galleryImg-13" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-19.jpg" alt="boat passes by apartmemnts in amsterdam">
-
                     <img id="galleryImg-14" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-9.jpg" alt="a man ready to ride his motorcycle">
                     <img id="galleryImg-15" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-10.jpg" alt="man smoking a cigarette on the street as a bus passes behind him">
                     <img id="galleryImg-16" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-11.jpg" alt="me and my highshcool friends' shaddows">
                     <img id="galleryImg-17" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-23.jpg" alt="bikes locked to a lamp post">
-
                     <img id="galleryImg-18" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-12.jpg" alt="corner of a building in early evening">
-                </div>
+               </div>
                 <div class="column">
                     <img id="galleryImg-19" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-13.jpg" alt="cooper, again, looking regal">
                     <img id="galleryImg-20" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-14.jpg" alt="a branch">
                     <img id="galleryImg-9" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-22.jpg" alt="a gorgeous mobil at the louisiana museum">
-
-
                     <img id="galleryImg-21" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-15.jpg" alt="frustrated college students struggle to push a folding table up a snowy hill' shaddows">
-
                     <img id="galleryImg-22" src="../Assets/Photos/resized/ivy-bixler-web-portfolio-16.jpg" alt="a row of tulips in a field">
                     
                 </div>
-                <script src="../js/photoModal.js"></script>
+                
             </div>
             
         </div>

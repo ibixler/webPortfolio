@@ -94,6 +94,7 @@
 }
 
 @media screen and (max-width: 600px) {
+
     .topnav a:not(:first-child), .dropdown .dropdownItem {
       display: none;
     }
@@ -113,10 +114,11 @@
   
   @media screen and (max-width: 600px) {
     .topnav.responsive {
-      position: relative;
+      position:relative;
       margin-right: auto;
       margin-left: auto;
       width: var(--mobileWidth);
+      z-index: 2;
       
     }
     .topnav.responsive .icon {
