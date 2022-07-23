@@ -11,7 +11,7 @@
 
 .topnav{
     background-color: rgb(147 137 212);
-    z-index: 0;
+    z-index: 1;
     width: 75%;
     margin-left: auto;
     margin-right: auto;
@@ -50,7 +50,6 @@
     position: relative;
     display: inline-block;
 
-    z-index: 10;
 
 }
 
@@ -64,7 +63,6 @@
     box-shadow: 0px 8px 16px rgba(8,8,8,.2);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    z-index: 10;
 
 }
 .dropdownContent a{
@@ -84,11 +82,13 @@
 
 .dropdown:hover .dropdownContent{
     display: block;
+    z-index: 3;
     
 
 }
 .dropdownItem:hover{
     background-color: rgb(147	137	212);
+    z-index: 3;
 }
 
 .topnav .icon{
