@@ -1,6 +1,8 @@
 var img = 'test';
 var modal = 'test';
 var modalImg = 'test';
+
+
 window.onload = function(){
     console.log('your balls are tiny');
     img = document.getElementById("galleryImg-1");
@@ -13,8 +15,9 @@ window.onload = function(){
 
 
 console.log('literally fucking crying');
-function triggerModal(){
-    
+function triggerModal(photoNum){
+    img = document.getElementById("galleryImg-" + photoNum);
+    modalImg = img.src
 
     console.log("clicked");
 
