@@ -17,6 +17,7 @@
     margin-right: auto;
     max-width: 800px;
     position: relative;
+    text-shadow: none;
 }
 .topnav a{
     float: center;
@@ -164,5 +165,5 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(255, 255, 255);
     text-align: center;
-    position: relative;
+    position: relative; 
   }

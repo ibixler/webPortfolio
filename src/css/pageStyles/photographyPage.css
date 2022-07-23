@@ -1,3 +1,24 @@
+#aboutPhoto{
+    background-color: rgba(128, 128, 128,.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+    position: inherit;
+    border-radius: 15px;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    padding-left:15px ;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+
 #photos {
     background-color: rgba(128, 128, 128,.5);
     -webkit-backdrop-filter: blur(5px);
