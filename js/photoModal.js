@@ -1,7 +1,7 @@
 var img = 'test';
 var modal = 'test';
 var modalImg = 'test';
-
+var modalAlt = 'test'
 
 window.onload = function(){
     console.log('your balls are tiny');
@@ -9,6 +9,7 @@ window.onload = function(){
     modal = document.getElementById("galleryModal");
     modalContent = document.getElementById('img01')
     modalImg = img.src;
+    
 }
  
 
@@ -17,12 +18,16 @@ window.onload = function(){
 console.log('literally fucking crying');
 function triggerModal(photoNum){
     img = document.getElementById("galleryImg-" + photoNum);
-    modalImg = img.src
+    modalImg = img.src;
+    modalAlt = img.alt;
+    console.log(modalAlt);
 
     console.log("clicked");
 
     modal.style.display = "block";
     modalContent.src = modalImg;
+    modalContent.alt = modalAlt;
+
 }
 
 
