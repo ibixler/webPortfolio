@@ -1,21 +1,19 @@
+//Written by Ivy Bixler Jul 2022
+//Initializing variables
+//
+
 var img = 'test';
 var modal = 'test';
 var modalImg = 'test';
-var modalAlt = 'test'
+var modalAlt = 'test';
 
 window.onload = function(){
-    console.log('your balls are tiny');
     img = document.getElementById("galleryImg-1");
     modal = document.getElementById("galleryModal");
-    modalContent = document.getElementById('img01')
+    modalContent = document.getElementById('img01');
     modalImg = img.src;
-    
 }
- 
-
-
-
-console.log('literally fucking crying');
+//called when a photo is clicked
 function triggerModal(photoNum){
     img = document.getElementById("galleryImg-" + photoNum);
     modalImg = img.src;
@@ -29,14 +27,11 @@ function triggerModal(photoNum){
     modalContent.alt = modalAlt;
 
 }
-
-
+//called when close button is clicked
 function closeModal(){
-    console.log('lick my balls');
     console.log(modal);
     modal.style.display = "none";
     console.log(modal);
-    
 }
 
 
