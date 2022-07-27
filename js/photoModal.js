@@ -5,12 +5,12 @@
 var img = 'test';
 var modal = 'test';
 var modalImg = 'test';
-var modalAlt = 'test'
-//runs once window loads because otherwise the page breaks
+var modalAlt = 'test';
+
 window.onload = function(){
     img = document.getElementById("galleryImg-1");
     modal = document.getElementById("galleryModal");
-    modalContent = document.getElementById('img01')
+    modalContent = document.getElementById('img01');
     modalImg = img.src;
 }
 //called when a photo is clicked
