@@ -116,11 +116,11 @@
   
   @media screen and (max-width: 600px) {
     .topnav.responsive {
-      position:relative;
+      position: absolute;
       margin-right: auto;
       margin-left: auto;
       width: var(--mobileWidth);
-      z-index: 2;
+      z-index: 0;
       
     }
     .topnav.responsive .icon {
@@ -136,23 +136,24 @@
 
     }
     .topnav.responsive .dropdown {
-      float: center; 
+      
+
     }
     .topnav.responsive .dropdownContent {
 
-      position: inherit;
+      position: relative;
       padding-left: 40px;
       width: calc(var(--mobileWidth) - 40px);
-      z-index: 1;
+      z-index: 2;
       text-shadow: none;
       background-color: grey;
       color:white;
     }
     .topnav.responsive .dropdown .dropdownItem {
       display: list-item;
-      
+      position: inherit;
       text-align: left;
-      z-index: 1;
+      z-index: 2;
       min-width: var(--mobileWidth);
 
     }
