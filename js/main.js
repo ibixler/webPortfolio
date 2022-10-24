@@ -24,7 +24,7 @@ var root = document.querySelector(':root');
 function mobileResize() {
     var rootStyles = getComputedStyle(root);
     if (window.innerWidth > 600) {
-        console.log("wide enough to not worry just yet");
+        console.log("wide enough to not worry, just yet :)");
     }
     else{
         let width = window.innerWidth;
