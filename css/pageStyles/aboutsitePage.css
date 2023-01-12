@@ -10,22 +10,36 @@ body {
 }
 h1 {
     text-align: center;
-    background-color:darkgrey;
-    border-radius: 5px;
+    border-radius: 5px;  
+    margin-left: 10%;  
+    margin-right: 10%;
+}
+.image {
+    display:block;
+    background-color: rgba(128, 128, 128,.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    position: inherit;
+    border-radius: 15px;
     
 }
+
 
 h2 {
     text-align: left;
     padding-left: 15px;
 }
 #aboutSite {
+    z-index: 0;
     display:block;
     background-color: rgba(128, 128, 128,.5);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     max-width: 750px;
-    
+    margin-top: 10px;
     margin-left: 15%;
     margin-right: 15%;
     position: inherit;
@@ -35,7 +49,7 @@ h2 {
 }
 
 .blurb {
-    background-color:plum;
+    background-color: grey;
     position: inherit;
     border-radius: 15px;
     margin-left: 5px;
@@ -46,6 +60,14 @@ h2 {
     padding-bottom: 5px;
 
 }
+
+.blurb p {
+    text-align: left;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-indent: 25px;
+}
+
 li {
     text-align: left;
     margin-left: 1px;

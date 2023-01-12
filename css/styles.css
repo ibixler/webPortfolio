@@ -136,6 +136,7 @@
 
     }
     .topnav.responsive  {
+      z-index: 1;     
       float: center;
       display: block;
       text-align: left;
