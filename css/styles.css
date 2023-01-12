@@ -117,8 +117,8 @@
   @media screen and (max-width: 600px) {
     .topnav.responsive {
       position: absolute;
-      margin-right: auto;
-      margin-left: auto;
+      margin-right: 5%;
+      margin-left: 5%;
       width: var(--mobileWidth);
       z-index: 0;
       
@@ -135,7 +135,10 @@
       text-align: left;
 
     }
-    .topnav.responsive .dropdown {
+    .topnav.responsive  {
+      float: center;
+      display: block;
+      text-align: left;
       
 
     }
