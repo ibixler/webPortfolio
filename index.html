@@ -1,57 +1,72 @@
-<!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta charset="utf-8" />
+<style>
+    :root {
+        -–violet: #c8a2c8;
+        --cream: #fffeed;
+        --active: #dbdace;
+    }
+    a {
+        font-size: 2.5em;
+        color: var(--cream);
+    }
+    a:active {
+        color: var(--active);
+    }
+    body {
+        font-family: "Cormorant Garamond";
+        color: var(--cream);
+        background-color: #c8a2c8; /*not sure why this won let me */
+    }
+    #name {
+        font-size: 5rem;
+    }
+    p {
+        font-size: 2.5rem;
+    }
+</style>
 <html lang="en">
     <head>
         <!--global-->
-        <title>Ivy Bixler's Portfolio</title>
-        <link href="css/styles.css" type="text/css" rel="stylesheet"/>
-        <script src = "https://unpkg.com/eva-icons"></script>
-        <script src = "js/main.js"></script>
+        <title>Ivy Bixler</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="js/main.js"></script>
         <!--page specfic-->
-        <link href="css/pageStyles/homePage.css" type="text/css" rel="stylesheet">
+        <link
+            href="css/pageStyles/homePage.css"
+            type="text/css"
+            rel="stylesheet"
+        />
     </head>
-    <header>
-        <div class="topnav" id="respoNav">
-            <a class="active" href="index.html" id="home">Home</a> 
-            <div class="dropdown">
-                <button class="dropdownItem">Hobbies</button>
-                <div class="dropdownContent">
-                    <a href="Hobbies/programming.html">Programming Projects</a>
-                    <a href="Hobbies/photography.html">Photography</a>
-                    <a href="Hobbies/music.html">Music</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropdownItem">?</button>
-                <div class="dropdownContent">
-                    <a href="Info/AboutMe.html">About Me</a>
-                    <a href="Info/ContactInfo.html">Contact Info</a>
-                    <a href="Info/AboutSite.html">About This Website</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropdownItem">Academics</button>
-                <div class="dropdownContent">
-                    <a href="Academics/College.HTML">Ivy at WPI</a>
-                    <a href="Academics/PreCollege.html">Before College</a>
-                </div>
-            </div>
-            <a class="icon" onclick="burgerMenu()" id="respBtn">
-                <i data-eva="menu-outline" id="menubtn"></i>
-                <script>
-                    replace()
-                </script>
-            </a>
+    <body>
+        <div id="title">
+            <h1 id="name">Ivy Bixler</h1>
+            <a href="https://github.com/ibixler"> github </a>
         </div>
 
-    </header>
-    <body onresize="mobileResize()">
-        <div class="Main text">
-            <h1>Hi!</h1>
-            <p>I'm Ivy Bixler. This is my web portfolio, it's pretty barebones. More content coming soon!</p>
+        <div id="text-content">
+            <p>
+                I am a passionate programmer. I love bringing creative ideas
+                into reality. I've worked on numerous projects like, tile.music
+                and Timelier. I graduated with a B.S. in Computer Science from
+                Worcester Polytechnic Institute.
+            </p>
+            <p>
+                When I'm not writing cool apps, I'm working on my project car,
+                playing some kind of simulator game, taking pictures, or mixing.
+                You can check out my progress on the blog section of this site!
+            </p>
+            <p>
+                I am fastenated by the operating system kernels.
+                <i>Linux Kernel Development.</i> I am also an avid follower of
+                the Asahi Linux project and the Linux Kernel Mailing List.
+            </p>
         </div>
-        
-        </p>
     </body>
 </html>
