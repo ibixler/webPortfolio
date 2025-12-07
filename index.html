@@ -3,7 +3,7 @@
 <meta charset="utf-8" />
 <style>
     :root {
-        -–violet: #c8a2c8;
+        --violet: #c8a2c8;
         --cream: #fffeed;
         --active: #dbdace;
     }
@@ -17,13 +17,47 @@
     body {
         font-family: "Cormorant Garamond";
         color: var(--cream);
-        background-color: #c8a2c8; /*not sure why this won let me */
+        background-color: var(--violet); /*not sure why this won let me */
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        isolation: isolate;
+        width: 90vw;
     }
     #name {
         font-size: 5rem;
     }
     p {
         font-size: 2.5rem;
+        position: relative;
+        z-index: 2;
+
+        mix-blend-mode: difference;
+    }
+    /* Background bounce layer */
+    #dvd-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    #dvd-logo {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        isolation: isolate;
+        position: absolute;
+        width: 140px; /* adjust size */
+        height: auto;
+        user-select: none;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
     }
 </style>
 <html lang="en">
@@ -36,7 +70,6 @@
             href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
             rel="stylesheet"
         />
-        <script src="js/main.js"></script>
         <!--page specfic-->
         <link
             href="css/pageStyles/homePage.css"
@@ -45,7 +78,10 @@
         />
     </head>
     <body>
-        <div id="title">
+        <div id="dvd-bg">
+            <img id="dvd-logo" src="Assets/bounce/vw-logo.png" alt="logo" />
+        </div>
+        <div id="t  itle">
             <h1 id="name">Ivy Bixler</h1>
             <a href="https://github.com/ibixler"> github </a>
         </div>
@@ -63,10 +99,92 @@
                 You can check out my progress on the blog section of this site!
             </p>
             <p>
-                I am fastenated by the operating system kernels.
-                <i>Linux Kernel Development.</i> I am also an avid follower of
-                the Asahi Linux project and the Linux Kernel Mailing List.
+                I love programming systems, to write code that runs silently in
+                the backgrond. I am fastenated by the operating system kernels.
+                One of my favorite books is,<i>Linux Kernel Development.</i>
+                I am also an avid follower of the Asahi Linux project and the
+                Linux Kernel Mailing List.
             </p>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const logo = document.getElementById("dvd-logo");
+                const container = document.getElementById("dvd-bg");
+
+                // List all images you want to cycle through
+
+                const basePath = "Assets/Bounce/";
+
+                const images = [basePath + "vw-logo.png", basePath + "tux.png"];
+
+                let currentImage = 0;
+
+                function nextImage() {
+                    currentImage = (currentImage + 1) % images.length;
+                    logo.src = images[currentImage];
+                }
+
+                function startBounce() {
+                    const w = container.clientWidth;
+                    const h = container.clientHeight;
+                    const lw = logo.clientWidth;
+                    const lh = logo.clientHeight;
+
+                    let x = Math.random() * (w - lw);
+                    let y = Math.random() * (h - lh);
+                    let vx = 1;
+                    let vy = 1.1;
+
+                    function animate() {
+                        const w = container.clientWidth;
+                        const h = container.clientHeight;
+                        const lw = logo.clientWidth;
+                        const lh = logo.clientHeight;
+
+                        x += vx;
+                        y += vy;
+
+                        let collided = false;
+
+                        if (x + lw >= w) {
+                            x = w - lw;
+                            vx *= -1;
+                            collided = true;
+                        } else if (x <= 0) {
+                            x = 0;
+                            vx *= -1;
+                            collided = true;
+                        }
+
+                        if (y + lh >= h) {
+                            y = h - lh;
+                            vy *= -1;
+                            collided = true;
+                        } else if (y <= 0) {
+                            y = 0;
+                            vy *= -1;
+                            collided = true;
+                        }
+
+                        if (collided) {
+                            nextImage(); // swap image on each bounce
+                        }
+
+                        logo.style.transform = `translate(${x}px, ${y}px)`;
+
+                        requestAnimationFrame(animate);
+                    }
+
+                    animate();
+                }
+
+                // Ensure the first image is loaded before getting dimensions
+                if (logo.complete) {
+                    startBounce();
+                } else {
+                    logo.onload = startBounce;
+                }
+            });
+        </script>
     </body>
 </html>
