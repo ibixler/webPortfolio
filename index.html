@@ -35,6 +35,18 @@
 
         mix-blend-mode: difference;
     }
+    point {
+        padding: 0.1em 0.35em;
+        border-radius: 0.35em;
+        transition:
+            background-color 0.25s ease,
+            color 0.25s ease;
+    }
+    
+    point.active {
+        background-color: var(--cream);
+        color: var(--violet);
+    }
     /* Background bounce layer */
     #dvd-bg {
         position: fixed;
@@ -54,10 +66,11 @@
         isolation: isolate;
         position: absolute;
         width: 140px; /* adjust size */
-        height: auto;
+        max-height: 140px;
         user-select: none;
         pointer-events: none;
         transition: opacity 0.4s ease;
+        object-fit: contain;
     }
 </style>
 <html lang="en">
@@ -94,7 +107,8 @@
                 Worcester Polytechnic Institute.
             </p>
             <p>
-                When I'm not writing cool apps, I'm working on my project car,
+                When I'm not writing cool apps, I'm working on my 
+                <point>project car.</point>
                 playing some kind of simulator game, taking pictures, or mixing.
                 You can check out my progress on the blog section of this site!
             </p>
@@ -108,20 +122,41 @@
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
+                const activatables = document.querySelectorAll("point")
                 const logo = document.getElementById("dvd-logo");
                 const container = document.getElementById("dvd-bg");
 
                 // List all images you want to cycle through
 
                 const basePath = "Assets/Bounce/";
-
-                const images = [basePath + "vw-logo.png", basePath + "tux.png"];
+                const makePath = (src, key) => {
+                    return {
+                        src: basePath + src,
+                        key: key    
+                    }
+                }
+                const images = [
+                    makePath("vw-logo.png", "vw"),
+                    makePath("tux.png", "linux"),
+                    makePath("music.png", "music"),
+                ];
 
                 let currentImage = 0;
 
                 function nextImage() {
-                    currentImage = (currentImage + 1) % images.length;
-                    logo.src = images[currentImage];
+                    function nextImage() {
+                        currentImage = (currentImage + 1) % images.length;
+                        const { src, key } = images[currentImage];
+                    
+                        logo.src = src;
+                    
+                        activatables.forEach(el => {
+                            el.classList.toggle(
+                                "active",
+                                el.dataset.activate === key
+                            );
+                        });
+                    }
                 }
 
                 function startBounce() {
@@ -167,7 +202,19 @@
                         }
 
                         if (collided) {
-                            nextImage(); // swap image on each bounce
+                            const prevVx = vx;
+                            const prevVy = vy;
+                        
+                            logo.style.opacity = "0";
+                        
+                            logo.onload = () => {
+                                logo.style.opacity = "1";
+                                vx = prevVx;
+                                vy = prevVy;
+                            };
+                        
+                            nextImage();
+                            // skip this frame
                         }
 
                         logo.style.transform = `translate(${x}px, ${y}px)`;
