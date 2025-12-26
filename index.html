@@ -17,11 +17,9 @@
     body {
         font-family: "Cormorant Garamond";
         color: var(--cream);
-        background-color: var(--violet); /*not sure why this won let me */
-        position: fixed;
+        background-color: var(--violet);
         inset: 0;
         z-index: 1;
-        pointer-events: none;
         isolation: isolate;
         width: 90vw;
     }
@@ -42,7 +40,7 @@
             background-color 0.25s ease,
             color 0.25s ease;
     }
-    
+
     point.active {
         background-color: var(--cream);
         color: var(--violet);
@@ -72,6 +70,9 @@
         transition: opacity 0.4s ease;
         object-fit: contain;
     }
+    h2 {
+        position: sticky;
+    }
 </style>
 <html lang="en">
     <head>
@@ -81,12 +82,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
-            rel="stylesheet"
-        />
-        <!--page specfic-->
-        <link
-            href="css/pageStyles/homePage.css"
-            type="text/css"
             rel="stylesheet"
         />
     </head>
@@ -100,14 +95,16 @@
         </div>
 
         <div id="text-content">
+        <h2>About Me</h2>
             <p>
-                I am a passionate programmer. I love bringing creative ideas
-                into reality. I've worked on numerous projects like, tile.music
-                and Timelier. I graduated with a B.S. in Computer Science from
-                Worcester Polytechnic Institute.
+                I am a passionate, creative programmer. I love bringing
+                creative ideas into reality. I've worked on numerous projects
+                like, tile.music and Timelier. I graduated with a B.S. in
+                Computer Science from Worcester Polytechnic Institute in May
+                of 2025.
             </p>
             <p>
-                When I'm not writing cool apps, I'm working on my 
+                When I'm not writing cool apps, I'm working on my
                 <point>project car.</point>
                 playing some kind of simulator game, taking pictures, or mixing.
                 You can check out my progress on the blog section of this site!
@@ -115,10 +112,13 @@
             <p>
                 I love programming systems, to write code that runs silently in
                 the backgrond. I am fastenated by the operating system kernels.
-                One of my favorite books is,<i>Linux Kernel Development.</i>
-                I am also an avid follower of the Asahi Linux project and the
-                Linux Kernel Mailing List.
+                One of my favorite books is,<i>Linux Kernel Development,</i>
+                it completely changed the way I approach development. It taught
+                me to approach problems with the big picture in mind while also,
+                carefully modularizing code. I am also an avid follower of the
+                Asahi Linux project and the Linux Kernel Mailing List.
             </p>
+
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", () => {
@@ -132,7 +132,7 @@
                 const makePath = (src, key) => {
                     return {
                         src: basePath + src,
-                        key: key    
+                        key: key
                     }
                 }
                 const images = [
@@ -142,83 +142,75 @@
                 ];
 
                 let currentImage = 0;
+                let canSwapImage = true;
 
                 function nextImage() {
-                    function nextImage() {
-                        currentImage = (currentImage + 1) % images.length;
-                        const { src, key } = images[currentImage];
-                    
-                        logo.src = src;
-                    
-                        activatables.forEach(el => {
-                            el.classList.toggle(
-                                "active",
-                                el.dataset.activate === key
-                            );
-                        });
-                    }
+                    currentImage = (currentImage + 1) % images.length;
+                    const { src, key } = images[currentImage];
+
+                    logo.src = src;
+
+                    activatables.forEach(el => {
+                        el.classList.toggle(
+                            "active",
+                            el.dataset.activate === key
+                        );
+                    });
                 }
 
                 function startBounce() {
-                    const w = container.clientWidth;
-                    const h = container.clientHeight;
-                    const lw = logo.clientWidth;
-                    const lh = logo.clientHeight;
+                    const getBounds = () => ({
+                        w: container.clientWidth,
+                        h: container.clientHeight,
+                        lw: logo.clientWidth,
+                        lh: logo.clientHeight,
+                    });
+
+                    let { w, h, lw, lh } = getBounds();
 
                     let x = Math.random() * (w - lw);
                     let y = Math.random() * (h - lh);
-                    let vx = 1;
+                    let vx = 1.2;
                     let vy = 1.1;
 
+                    function handleCollision() {
+                        if (!canSwapImage) return;
+
+                        canSwapImage = false;
+                        logo.style.opacity = "0";
+
+                        setTimeout(() => {
+                            nextImage();
+                            logo.style.opacity = "1";
+                            canSwapImage = true;
+                        }, 150);
+                    }
+
                     function animate() {
-                        const w = container.clientWidth;
-                        const h = container.clientHeight;
-                        const lw = logo.clientWidth;
-                        const lh = logo.clientHeight;
+                        ({ w, h, lw, lh } = getBounds());
 
                         x += vx;
                         y += vy;
 
                         let collided = false;
 
-                        if (x + lw >= w) {
-                            x = w - lw;
+                        if (x <= 0 || x + lw >= w) {
                             vx *= -1;
-                            collided = true;
-                        } else if (x <= 0) {
-                            x = 0;
-                            vx *= -1;
+                            x = Math.max(0, Math.min(x, w - lw));
                             collided = true;
                         }
 
-                        if (y + lh >= h) {
-                            y = h - lh;
+                        if (y <= 0 || y + lh >= h) {
                             vy *= -1;
-                            collided = true;
-                        } else if (y <= 0) {
-                            y = 0;
-                            vy *= -1;
+                            y = Math.max(0, Math.min(y, h - lh));
                             collided = true;
                         }
 
                         if (collided) {
-                            const prevVx = vx;
-                            const prevVy = vy;
-                        
-                            logo.style.opacity = "0";
-                        
-                            logo.onload = () => {
-                                logo.style.opacity = "1";
-                                vx = prevVx;
-                                vy = prevVy;
-                            };
-                        
-                            nextImage();
-                            // skip this frame
+                            handleCollision();
                         }
 
                         logo.style.transform = `translate(${x}px, ${y}px)`;
-
                         requestAnimationFrame(animate);
                     }
 
@@ -234,4 +226,5 @@
             });
         </script>
     </body>
+    <footer>Ivy Bixler © 2025</footer>
 </html>
